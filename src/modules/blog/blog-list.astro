@@ -9,18 +9,19 @@ let blogPosts = await getCollection('blog', (post) =>
 let sortedBlogPosts = sort(blogPosts, (blog) => new Date(blog.data.publishedAt).getTime(), true);
 ---
 
-<section class='py-20 max-md:pt-10 max-w-3xl mx-auto w-11/12'>
+<section class='py-20 max-md:pt-10 max-w-5xl mx-auto w-12/12'>
   <h2
-    class='text-3xl lg:text-4xl 2xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 to-neutral-800'
+    class='text-3xl lg:text-4xl 2xl:text-6xl font-bold text-transparent capitalize bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-500'
   >
     All posts
   </h2>
 
-  <p class='text-neutral-400 font-medium pt-2 md:pt-4 text-balance'>
+  <p class='text-white-400 font-medium pt-2 md:pt-4 text-balance'>
     All posts are available to read, if you got anytime, feel free to check them out.
   </p>
 
-  <div class='pt-10 grid gap-4'>
+  <div class='pt-10 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
     {sortedBlogPosts.map((blog) => <BlogListCard {...blog} />)}
   </div>
+  
 </section>

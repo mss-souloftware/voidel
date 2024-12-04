@@ -2,6 +2,7 @@
 import SharedLayout from '@/layouts/shared.astro';
 import BlogList from '@/modules/blog/blog-list.astro';
 import Hero from '@/modules/blog/hero.astro';
+import { BackgroundBeams } from '@/components/ui/background-beams';
 
 let title = 'Blog - rimzzlabs.com';
 let description =
@@ -18,6 +19,8 @@ let keywords = [
 <SharedLayout title={title} description={description} keywords={keywords}>
   <main>
     <Hero />
+    
     <BlogList />
+    <BackgroundBeams client:load />
   </main>
 </SharedLayout>

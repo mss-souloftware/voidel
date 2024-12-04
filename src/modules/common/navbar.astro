@@ -8,7 +8,7 @@ let navbarMenu = menu.filter((item) => !item.external);
 
 <header
   class={cn(
-    'fixed top-0 inset-x-0 z-50 h-16 bg-neutral-950',
+    'fixed top-0 inset-x-0 z-50 h-16 py-10 bg-neutral-950',
     'supports-[backdrop-filter:blur(1px)]:backdrop-blur',
     'supports-[backdrop-filter:blur(1px)]:bg-neutral-950/10',
   )}
@@ -17,12 +17,12 @@ let navbarMenu = menu.filter((item) => !item.external);
     <a
       href='/'
       title='Homepage'
-      class='font-semibold text-lg text-transparent bg-gradient-to-b bg-clip-text from-neutral-100 to-neutral-600'
+      class='font-semibold text-lg text-transparent bg-gradient-to-b uppercase bg-clip-text from-neutral-100 to-neutral-600'
     >
       rimzzlabs.com
     </a>
 
-    <nav class='ml-auto inline-flex items-center gap-x-2'>
+    <nav class='ml-auto uppercase text-md inline-flex items-center gap-x-5'>
       {navbarMenu.map((args) => <NavbarLinkItem {...args} />)}
     </nav>
   </div>

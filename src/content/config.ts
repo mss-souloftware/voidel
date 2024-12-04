@@ -2,6 +2,7 @@ import { defineCollection, reference, z } from "astro:content";
 
 let blogSchema = z.object({
   title: z.string(),
+  featimage: z.string().url(),
   description: z.string(),
   keywords: z.array(z.string()),
   publishedAt: z.string(),

@@ -1,5 +1,6 @@
 ---
 title: "Jotai, a beautiful state manager for React dev"
+featimage: "https://cms.imgworlds.com/assets/a5366382-0c26-4726-9873-45d69d24f819.jpg"
 description: "When talked about state manager, the first word you could think would probably Redux, but for now let's use another state manager library, introducing Jotai."
 publishedAt: "07/08/2022"
 status: "published"
