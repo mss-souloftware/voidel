@@ -1,7 +1,8 @@
 ---
 title: "Improving Performance in React with These 3 Techniques"
-featimage: "https://cms.imgworlds.com/assets/a5366382-0c26-4726-9873-45d69d24f819.jpg"
+featimage: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*WtpWzQL1ntqW4KgmTdkskw.png"
 description: "A slow or unresponsive app can frustrate users and lead to a poor user experience. In today's competitive market, it's more important than ever to ensure that your app is delivering the best possible experience to your users."
+category: "React"
 publishedAt: "12/25/2022"
 status: "published"
 featured: false

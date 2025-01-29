@@ -12,26 +12,22 @@ import JourneyPartZero from '@/modules/home/journey-part-zero.astro';
 import JourneyContinues from '@/modules/home/journey-continues.astro';
 import { JourneyContinuesWords } from '@/modules/home/journey-continues-words';
 import SharedLayout from '@/layouts/shared.astro';
+import Play from '@/modules/home/play.astro';
 ---
 
 <SharedLayout>
   <TracingBeam client:load>
     <main>
       <Hero />
-      <Introduction />
-      <JourneyPartZero />
+   
+      <!-- <JourneyPartZero />
       <JourneyPartOne />
       <JourneyPartTwo />
       <JourneyPartThree />
-      <JourneyPartFour />
-      <WavyBackground
-        containerClassName='h-44 overflow-x-clip'
-        canvasHeight={176}
-        waveWidth={20}
-        client:visible
-      />
-      <JourneyContinues />
-      <JourneyContinuesWords client:visible />
+      <JourneyPartFour /> -->
+   
+    
+      <Play />
     </main>
   </TracingBeam>
 </SharedLayout>

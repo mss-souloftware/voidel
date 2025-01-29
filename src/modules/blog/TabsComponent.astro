@@ -1,0 +1,34 @@
+---
+export interface Props {
+  categories: string[];
+  activeCategory: string;
+  onChange: (category: string) => void;
+}
+
+const { categories = [], activeCategory = "All", onChange = () => {} } = Astro.props;
+---
+
+<div class="tabs flex space-x-4">
+  {categories.map((category) => (
+    <button
+      type="button"
+      onclick={`() => onChange('${category}')`}  
+      class={`tab ${activeCategory === category ? 'active' : ''}`}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
+<style>
+  .tab {
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .tab.active {
+    font-weight: bold;
+    border-bottom: 2px solid currentColor;
+  }
+</style>

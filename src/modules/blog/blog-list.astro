@@ -3,72 +3,25 @@ import { getCollection } from 'astro:content';
 import BlogListCard from './blog-list-card.astro';
 import { sort } from 'radash';
 
-// Fetch and sort the blog posts
 let blogPosts = await getCollection('blog', (post) =>
   import.meta.env.PROD ? post.data.status === 'published' : true,
 );
 let sortedBlogPosts = sort(blogPosts, (blog) => new Date(blog.data.publishedAt).getTime(), true);
-
-// Initial variables for client-side control
-let blogsPerRow = 3;
 ---
 
-<section class="py-20 max-md:pt-10 max-w-5xl mx-auto w-12/12">
+<section class='py-20 max-md:pt-10 max-w-5xl mx-auto w-12/12'>
   <h2
-    class="text-3xl lg:text-4xl 2xl:text-6xl font-bold text-transparent capitalize bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-500"
+    class='text-3xl lg:text-4xl 2xl:text-6xl lg:text-left text-center font-bold text-transparent capitalize bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-500'
   >
     All posts
   </h2>
 
-  <p class="text-white-400 font-medium pt-2 md:pt-4 text-balance">
-    All posts are available to read. If you have time, feel free to check them out.
+  <p class='text-white-400 font-medium lg:text-left text-center pt-2 md:pt-4 text-balance'>
+    All posts are available to read, if you got anytime, feel free to check them out.
   </p>
 
-  <!-- Blog container with dynamic rows -->
-  <div id="blog-container" class="pt-10 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    {sortedBlogPosts.slice(0, blogsPerRow).map((blog) => (
-      <BlogListCard {...blog} />
-    ))}
+  <div class='pt-10 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+    {sortedBlogPosts.map((blog) => <BlogListCard {...blog} />)}
   </div>
-
-  <!-- Load more button -->
-  <div id="load-more-container" class="pt-6 text-center">
-    <button
-      id="load-more-button"
-      class="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-700"
-    >
-      Load More
-    </button>
-  </div>
-
-  <!-- JavaScript for client-side interactivity -->
-  <script>
-    const blogs = {JSON.stringify(sortedBlogPosts)};
-    const blogsPerRow = {JSON.stringify(blogsPerRow)};
-    const totalBlogs = blogs.length;
-
-    const blogContainer = document.getElementById('blog-container');
-    const loadMoreButton = document.getElementById('load-more-button');
-
-    let visibleBlogs = blogsPerRow;
-
-    loadMoreButton.addEventListener('click', () => {
-      const nextBlogs = blogs.slice(visibleBlogs, visibleBlogs + blogsPerRow);
-      nextBlogs.forEach((blog) => {
-        const blogElement = document.createElement('div');
-        blogElement.innerHTML = `
-          <div class="card">
-            <h3>${blog.data.title}</h3>
-            <p>${blog.data.description}</p>
-          </div>`;
-        blogContainer.appendChild(blogElement);
-      });
-
-      visibleBlogs += blogsPerRow;
-
-      if (visibleBlogs >= totalBlogs) {
-        loadMoreButton.style.display = 'none';
-      }
-    });
-  </script>
+  
 </section>

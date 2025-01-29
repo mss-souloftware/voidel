@@ -1,0 +1,47 @@
+---
+import TabsComponent from '@/modules/blog/TabsComponent.astro';
+
+let categories = ["All", "React", "Next.js", "JavaScript"];  // Example categories
+let activeCategory = "All";  // Default active category
+let posts = [
+  { title: "React Post 1", category: "React" },
+  { title: "Next.js Post 1", category: "Next.js" },
+  { title: "JavaScript Post 1", category: "JavaScript" },
+  { title: "React Post 2", category: "React" },
+  // Add more posts here
+];
+
+function handleCategoryChange(category) {
+  activeCategory = category;  // Update active category
+}
+---
+
+<main>
+  <h1>Blog Categories</h1>
+
+  <!-- Tabs to filter categories -->
+  <TabsComponent
+    categories={categories}
+    activeCategory={activeCategory}
+    onChange={handleCategoryChange}
+  />
+
+  <!-- List of filtered posts -->
+  <div class="posts">
+    {posts.filter(post => activeCategory === "All" || post.category === activeCategory).map((post) => (
+      <div class="post">
+        <h2>{post.title}</h2>
+      </div>
+    ))}
+  </div>
+</main>
+
+<style>
+  .posts {
+    margin-top: 2rem;
+  }
+
+  .post {
+    margin-bottom: 1rem;
+  }
+</style>

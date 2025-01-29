@@ -10,6 +10,7 @@ let blogSchema = z.object({
   featured: z.boolean(),
   author: reference("authors"),
   relatedPosts: z.array(reference("blog")).optional(),
+  category: z.string(), // Add this line for a single category
 });
 
 let authorsSchema = z.object({
