@@ -2,7 +2,6 @@
 import SharedLayout from '@/layouts/shared.astro';
 import BlogList from '@/modules/blog/blog-list.astro';
 import Hero from '@/modules/blog/hero.astro';
-import Tab from '@/modules/blog/tabs.astro';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import Play from '@/modules/home/play.astro';
 let title = 'Blog - rimzzlabs.com';
@@ -21,7 +20,6 @@ let keywords = [
   <main >
     <Hero />
     <BackgroundBeams client:load />
-    <Tab />
     <BlogList />
 <section class="lg:mt-32 mt-10">
   <Play />

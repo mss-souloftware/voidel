@@ -2,7 +2,7 @@
 title: "How To Setup Husky, Lint Staged, And Commitizen On A Next.js Project"
 featimage: "https://res.cloudinary.com/asthait/images/f_auto,q_auto/v1688447246/NextJS/NextJS.jpg"
 description: "Coding is not just writing lines of code, we often end up do everything manually, so why not use some tools that help us achieve our goals? This article will show you how to setup Husky, Lint Staged, And Conventional Commit With Next.js"
-category: "React"
+category: "Javascript"
 publishedAt: "03/23/2022"
 status: "published"
 featured: true
